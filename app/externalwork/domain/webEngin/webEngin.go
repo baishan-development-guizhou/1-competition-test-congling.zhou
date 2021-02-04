@@ -13,6 +13,7 @@ var _ WebEngin = (*repository)(nil)
 type WebEngin interface {
 	GetAPIWeight(apiName string) (weight int, err error)
 	SetAPIWeight(apiName string, weight int)
+	GetAPIList() *config.Detecation
 }
 
 type repository struct {
