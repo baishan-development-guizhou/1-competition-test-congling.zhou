@@ -312,7 +312,6 @@ Temporary Items
 *.pdb
 
 # Kernel Module Compile Results
-*.mod*
 *.cmd
 .tmp_versions/
 modules.order
@@ -350,7 +349,6 @@ $RECYCLE.BIN/
 # Prerequisites
 
 # Fortran module files
-*.mod
 *.smod
 
 # Compiled Static libraries

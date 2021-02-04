@@ -1,7 +1,9 @@
 package service
 
 import (
+	"crypto/rand"
 	"fmt"
+	"math/big"
 
 	"1-competition-test-congling.zhou/app/pkg/internet"
 	"1-competition-test-congling.zhou/app/pkg/logger"
@@ -14,8 +16,8 @@ type forwardModel interface {
 // ForwardRequests 请求转发业务
 func (i *impl) ForwardRequests() (interface{}, error) {
 	detectionInfo := i.GetAPIList()
-	// TODO: api选择算法待接入
-	url := fmt.Sprintf("%s%s", detectionInfo.Master, detectionInfo.APIs[0].Route)
+	result, _ := rand.Int(rand.Reader, big.NewInt(30))
+	url := fmt.Sprintf("%s%s", detectionInfo.Master, detectionInfo.APIs[int(result.Int64())].Route)
 	req := internet.HttpReq{
 		Header:  map[string]string{"Authorization": "Basic conglin.zhou"},
 		URL:     url,
