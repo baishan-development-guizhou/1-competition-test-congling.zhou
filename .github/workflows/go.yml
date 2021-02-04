@@ -19,5 +19,7 @@ jobs:
         with:
           go-version: ${{ matrix.go }}
       # 构建/测试 命令
+      - name: DependDownload
+        run: go mod download
       - name: Build
         run: go build -o zcl cmd/main.go
