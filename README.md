@@ -1,10 +1,25 @@
-# 1-competition-template
-
-竞赛模板。基于此仓库创建属于自己的竞赛项目，同时保留对应的 CI 工具，路径为 `.github/workflow`，主要支持如下：
-
-- c-cpp
-- go
-- java-gradle
-- java-maven
-- node
-- python
+```
+1-competition-test-congling.zhou
+├─ .github
+│  └─ workflows
+│     └─ go.yml
+├─ .gitignore
+├─ app：程序主体文件
+│  ├─ config：配置中心
+│  │  └─ config.go
+│  ├─ core：程序负载均衡核心
+│  ├─ externalwork：对外工作核心
+│  │  ├─ controller
+│  │  ├─ domain
+│  │  ├─ matedata
+│  │  ├─ middleware
+│  │  └─ service
+│  └─ pkg：公共包
+│     ├─ internet
+│     │  └─ sendReq.go
+│     └─ logger
+├─ cmd：程序脚本文件
+│  └─ main.go
+├─ LICENSE
+└─ README.md
+```
