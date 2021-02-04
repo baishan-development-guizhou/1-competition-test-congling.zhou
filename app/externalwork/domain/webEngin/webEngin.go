@@ -2,6 +2,7 @@ package webEngin
 
 import (
 	"errors"
+	"sync"
 
 	"1-competition-test-congling.zhou/app/config"
 )
@@ -11,9 +12,11 @@ var _ WebEngin = (*repository)(nil)
 // WebEngin 对外数据引擎
 type WebEngin interface {
 	GetAPIWeight(apiName string) (weight int, err error)
+	SetAPIWeight(apiName string, weight int)
 }
 
 type repository struct {
+	sync   sync.Mutex
 	nowAPI map[string]int
 }
 
@@ -26,11 +29,16 @@ func (r *repository) GetAPIWeight(apiName string) (weight int, err error) {
 	return weight, nil
 }
 
+func (r *repository) SetAPIWeight(apiName string, weight int) {
+	r.sync.Lock()
+	defer r.sync.Unlock()
+	r.nowAPI[apiName] = weight
+}
+
 // New 初始化 web引擎
 func New(config *config.Config) (WebEngin, error) {
-	// TODO: 待探测获取首次请求
-	detectionRes := map[string]int{"/api/2/now": 1}
-	return &repository{
-		nowAPI: detectionRes,
-	}, nil
+	repository := &repository{
+		nowAPI: make(map[string]int, config.SystemConf.APINum),
+	}
+	return repository, nil
 }

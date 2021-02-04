@@ -1,5 +1,105 @@
 {
     "system_config":{
-        "port": 8099
+        "port": 8099,
+        "api_num": 30,
+        "detecation_time": 100,
+        "time_out": 5
+    },
+    "detecation":{
+        "apis":[
+            {
+                "route":"/api/1/now",
+                "method": "GET"
+            },{
+                "route":"/api/2/now",
+                "method": "GET"
+            },{
+                "route":"/api/3/now",
+                "method": "GET"
+            },{
+                "route":"/api/4/now",
+                "method": "GET"
+            },{
+                "route":"/api/5/now",
+                "method": "GET"
+            },{
+                "route":"/api/6/now",
+                "method": "GET"
+            },{
+                "route":"/api/7/now",
+                "method": "GET"
+            },{
+                "route":"/api/8/now",
+                "method": "GET"
+            },{
+                "route":"/api/9/now",
+                "method": "GET"
+            },{
+                "route":"/api/10/now",
+                "method": "GET"
+            },{
+                "route":"/api/11/now",
+                "method": "GET"
+            },{
+                "route":"/api/12/now",
+                "method": "GET"
+            },{
+                "route":"/api/13/now",
+                "method": "GET"
+            },{
+                "route":"/api/14/now",
+                "method": "GET"
+            },{
+                "route":"/api/15/now",
+                "method": "GET"
+            },{
+                "route":"/api/16/now",
+                "method": "GET"
+            },{
+                "route":"/api/17/now",
+                "method": "GET"
+            },{
+                "route":"/api/18/now",
+                "method": "GET"
+            },{
+                "route":"/api/19/now",
+                "method": "GET"
+            },{
+                "route":"/api/20/now",
+                "method": "GET"
+            },{
+                "route":"/api/21/now",
+                "method": "GET"
+            },{
+                "route":"/api/22/now",
+                "method": "GET"
+            },{
+                "route":"/api/23/now",
+                "method": "GET"
+            },{
+                "route":"/api/24/now",
+                "method": "GET"
+            },{
+                "route":"/api/25/now",
+                "method": "GET"
+            },{
+                "route":"/api/26/now",
+                "method": "GET"
+            },{
+                "route":"/api/27/now",
+                "method": "GET"
+            },{
+                "route":"/api/28/now",
+                "method": "GET"
+            },{
+                "route":"/api/29/now",
+                "method": "GET"
+            },{
+                "route":"/api/30/now",
+                "method": "GET"
+            }
+        ],
+        "master": "http://114.117.0.25"
     }
+    
 }

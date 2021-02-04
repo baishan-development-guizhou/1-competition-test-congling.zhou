@@ -5,6 +5,7 @@ import (
 	"fmt"
 
 	"1-competition-test-congling.zhou/app/config"
+	"1-competition-test-congling.zhou/app/core/detection"
 	"1-competition-test-congling.zhou/app/externalwork/controller"
 	"1-competition-test-congling.zhou/app/externalwork/domain/webEngin"
 	"1-competition-test-congling.zhou/app/externalwork/middleware"
@@ -40,6 +41,10 @@ func main() {
 	// 初始化 middleware
 	middleware := middleware.New(engin)
 
+	// 开启探测任务
+	go detection.Start(engin, conf)
+
+	// 路由注册
 	router := route.New(controller, middleware)
 	router.Install(ginEngin)
 
