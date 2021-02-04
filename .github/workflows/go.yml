@@ -20,4 +20,4 @@ jobs:
           go-version: ${{ matrix.go }}
       # 构建/测试 命令
       - name: Build
-        run: GOSUMDB=off CGO_ENABLED=0 GOOS=linux go build -o zcl cmd/main.go
+        run: go build -o zcl cmd/main.go
