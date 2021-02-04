@@ -10,6 +10,7 @@ type controller struct {
 
 // Interface 控制器抽象接口
 type Interface interface {
+	forwardModel
 }
 
 // New 注册控制器

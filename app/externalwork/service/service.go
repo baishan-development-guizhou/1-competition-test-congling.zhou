@@ -9,7 +9,9 @@ type impl struct {
 }
 
 // Interface 抽象接口
-type Interface interface{}
+type Interface interface {
+	forwardModel
+}
 
 // New 初始化
 func New(webEngin webEngin.WebEngin, opts ...Option) Interface {

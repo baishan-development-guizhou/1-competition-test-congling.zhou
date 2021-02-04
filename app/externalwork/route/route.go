@@ -27,6 +27,6 @@ func (r *Route) Install(ginEngin *gin.Engine) {
 
 	now := ginEngin.Group("/now")
 	{
-		now.POST("/ggg")
+		now.POST("/forward", r.controller.ForwardRequests)
 	}
 }
