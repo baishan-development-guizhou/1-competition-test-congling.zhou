@@ -16,8 +16,9 @@ type WebEngin interface {
 }
 
 type repository struct {
-	sync   sync.Mutex
-	nowAPI map[string]int
+	sync    sync.Mutex
+	nowAPI  map[string]int
+	apiList *config.Detecation
 }
 
 // GetAPIWeight 获取API权重
@@ -35,10 +36,15 @@ func (r *repository) SetAPIWeight(apiName string, weight int) {
 	r.nowAPI[apiName] = weight
 }
 
+func (r *repository) GetAPIList() *config.Detecation {
+	return r.apiList
+}
+
 // New 初始化 web引擎
 func New(config *config.Config) (WebEngin, error) {
 	repository := &repository{
-		nowAPI: make(map[string]int, config.SystemConf.APINum),
+		nowAPI:  make(map[string]int, config.SystemConf.APINum),
+		apiList: config.Detecation,
 	}
 	return repository, nil
 }

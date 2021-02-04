@@ -40,10 +40,8 @@ func main() {
 	controller := controller.New(service)
 	// 初始化 middleware
 	middleware := middleware.New(engin)
-
 	// 开启探测任务
 	go detection.Start(engin, conf)
-
 	// 路由注册
 	router := route.New(controller, middleware)
 	router.Install(ginEngin)

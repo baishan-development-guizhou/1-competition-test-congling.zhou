@@ -18,6 +18,7 @@ type detectionResults struct {
 // Start 开启探测任务
 func Start(w webEngin.WebEngin, conf *config.Config) {
 	for {
+		logger.Info.Println("探测请求已开启！")
 		for i := 0; i < len(conf.Detecation.APIs); i++ {
 			go func(api *config.APIDetails) {
 				url := fmt.Sprintf("%s%s", conf.Detecation.Master, api.Route)
